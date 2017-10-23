@@ -1,0 +1,16 @@
+@{
+	Layout = "_Layout";
+}
+<ol>
+@for (int x = 0; x < Model.Count; x++)
+{
+	<li>@Model[x].GetDescription()</li>
+}
+</ol>
+
+<form action="/items/clear" method="post">
+<button type="submit" class="btn-lg btn-default">CLEAR the Inventory!</button>
+</form>
+<br>
+<br>
+<a href="/">Add Another Artifact</a>

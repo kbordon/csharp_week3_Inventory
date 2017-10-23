@@ -12,5 +12,21 @@ namespace Inventory.Controllers
       {
         return View();
       }
+
+      [HttpPost("/items/new")]
+      public ActionResult Inventory()
+      {
+        Item newItem = new Item(Request.Form["item-name"]);
+        newItem.Save();
+        List<Item> allItems = Item.GetAll();
+        return View(allItems);
+      }
+
+      [HttpPost("/items/clear")]
+      public ActionResult InventoryClear()
+      {
+        Item.DeleteAll();
+        return View();
+      }
     }
 }
